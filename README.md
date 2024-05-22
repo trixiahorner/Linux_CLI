@@ -73,7 +73,29 @@ ps aux
 <br>
 <br>
 
+- The proc directory allows us to see data associated with the various processes directly. Let's cd into this directory and list the contents
+```
+cd /proc/203
+ls
+```
 
+![proc](https://github.com/trixiahorner/Linux_CLI/blob/main/images/c6.png?raw=true)
+<br>
+<br>
+
+- We can run strings on the exe in this directory (piping it through less). This can be used to attemp to identify what exactly a program is doing. There is a lot
+  going on, but if you keep clicking the space bar, you will see the actual usage information for netcat.
+  Now we see that the malware is netcat.
+```
+strings ./exe | less
+```
+
+![proc](https://github.com/trixiahorner/Linux_CLI/blob/main/images/c7.png?raw=true)
+
+![proc](https://github.com/trixiahorner/Linux_CLI/blob/main/images/c8.png?raw=true)
+
+<br>
+<br>
 
 
 # Conclusion
