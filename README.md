@@ -39,5 +39,35 @@ ncat 172.17.231.122 2222
 <br>
 <br>
 
+## Linux CLI Analysis of malware
+- Now we will start our analysis from the Linux CLI. Let's hunt and find our malware. Open up a window for analysis.
+```
+sudo su -
+```
+<br>
+<br>
+
+- Using lsof we can see a listening device and an established connection
+```
+lsof -i -P
+```
+<br>
+
+![netcat](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C3.png?raw=true)
+<br>
+<br>
+
+- We can look at the netcat process ID using the -p option. This will give us all the open files associated with the listed process ID (the netcat listener)
+```
+lsof -p 203
+```
+<br>
+
+![netcat](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C4.png?raw=true)
+<br>
+<br>
+
+
+
 # Conclusion
 This lab is crucial for understanding the behavior of backdoor malware and the methodologies used to identify and respond to such threats effectively.
